@@ -23,9 +23,9 @@ const server = http.createServer((req, res) => {
   const url = req.url;
   // home page
   if (url === '/') {
-    res.writeHead(200, { 'content-type': 'text/html' });
-    res.write('<h1>home page</h1>');
-    res.end();
+    res.writeHead(200, { 'content-type': 'text/html' }); //headers que indica como el navegador debe renderizar el contenido mas el status code. Con express no debes preocuparte de esto. status code 100 para info, 200's para response existosa, 300's mensajes de redirección y 400 para errores en la response del cliente. Debes configurar el status code correctamente de acuerdo a su definición
+    res.write('<h1>home page</h1>'); //pasar data usando .write
+    res.end(); //res.end debe ser invocado por cada response, indica que toda la response headers y body fueron enviados. El servidor considera esto como mensaje completado
   }
   // about page
   else if (url === '/about') {
