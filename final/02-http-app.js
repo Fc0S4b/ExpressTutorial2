@@ -24,6 +24,7 @@ const server = http.createServer((req, res) => {
     res.end();
   }
   // styles
+  // index.html también llama a styles.css, browser-app.js, logo.svg, por lo que hay que configurar cada request para cada invocación
   else if (url === '/styles.css') {
     res.writeHead(200, { 'content-type': 'text/css' });
     res.write(homeStyles);
