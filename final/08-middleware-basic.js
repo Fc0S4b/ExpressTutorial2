@@ -13,6 +13,7 @@ const logger = (req, res, next) => {
   next(); //next es para dar el pase a la siguiente etapa del ciclo de request para llegar al response, no es necesario cuando estás respondiendo con res.send
 };
 // app.get para / y about y entremedio la función middleware logger
+// se puede automatizar el agregar middleware a cada ruta
 app.get('/', logger, (req, res) => {
   res.send('Home');
 });
