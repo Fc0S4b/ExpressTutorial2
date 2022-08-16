@@ -19,3 +19,8 @@ app.all('*', (req, res) => {
 app.listen(5000, () => {
   console.log('server is listening on port 5000....');
 });
+
+// cuando se trata de express, renderizarás API o SSR
+// API usa formato json para la data y res.json() para la response
+// ssr se usan templates y enviamos de vuelta todo el html, css y js usando métodos res.render()
+// este curso seguirá la metología de api al principio, después se verá ssr
