@@ -14,22 +14,24 @@ app.get('/api/products', (req, res) => {
 
   res.json(newProducts); //como response se verá id, name e image, no necesariamente tiene que ser todo el json
 });
-// ahora si es para un id específico:
+// ahora si es para un id específico: (recuerda usar :)
 app.get('/api/products/:productID', (req, res) => {
-  // console.log(req)
-  // console.log(req.params)
-  const { productID } = req.params;
+  // console.log(req) //objeto gigante
+  // console.log(req.params) // veremos el productID que estamos solicitando
+  const { productID } = req.params; //destructuramos el productID que necesitamos
 
   const singleProduct = products.find(
-    (product) => product.id === Number(productID)
+    (product) => product.id === Number(productID) //verificamos con un find para que coincida con el product que buscamos
   );
   if (!singleProduct) {
+    //en caso de que no exista esa coincidencia
     return res.status(404).send('Product Does Not Exist');
   }
 
-  return res.json(singleProduct);
+  return res.json(singleProduct); //devolvemos la respuesta en formato json
 });
 
+// para búsquedas mas complejas se puede extender más la ruta
 app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
   console.log(req.params);
   res.send('hello world');
