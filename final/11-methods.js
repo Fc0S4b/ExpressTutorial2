@@ -23,7 +23,7 @@ app.post('/api/people', (req, res) => {
   res.status(201).json({ success: true, person: name });
 });
 // en postman escribimos en el body { "name": "john"} y enviamos la solicitud usando método post, obtendremos todos los datos del array people ya que el name es true
-app.post('/api/postman/people', (req, res) => {
+app.post('/api/people/postman', (req, res) => {
   const { name } = req.body;
   if (!name) {
     return res
